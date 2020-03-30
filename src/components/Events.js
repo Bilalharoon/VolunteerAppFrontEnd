@@ -29,7 +29,7 @@ class Events extends Component {
           {this.state.events.map(event => {
             return event.volunteers.map(v => (
               <li key={v.id}>
-                {v.usersId === parseInt(this.props.userId) ? event.name : null}
+                {v.usersId === this.props.userId ? event.name : null}
               </li>
             ));
           })}
