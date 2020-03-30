@@ -27,11 +27,9 @@ class Events extends Component {
         <h1>My Events</h1>
         <ul>
           {this.state.events.map(event => {
-            return event.volunteers.map(v => (
-              <li key={v.id}>
-                {v.usersId === this.props.userId ? event.name : null}
-              </li>
-            ));
+            return event.volunteers
+              .filter(v => v.usersId === this.props.userId)
+              .map(v => <li key={v.id}>{event.name}</li>);
           })}
         </ul>
       </div>
