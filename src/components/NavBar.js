@@ -10,7 +10,13 @@ const Navbar = () => {
         <a href="/login">Login</a>
       </li>
       <li>
-        <a href="/events">events</a>
+        <a href="/signup">SignUp</a>
+      </li>
+      <li>
+        <a href="/events">Events</a>
+      </li>
+      <li>
+        <a href="/logout">Logout</a>
       </li>
     </ul>
   );

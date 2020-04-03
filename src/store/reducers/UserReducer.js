@@ -16,6 +16,13 @@ const userReducer = (state = userInitialState, action) => {
         role: action.payload.role
       };
 
+    case actionTypes.LOGOUT:
+      return {
+        ...state,
+        username: null,
+        password: null,
+        role: null
+      };
     default:
       return state;
   }
