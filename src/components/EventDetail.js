@@ -3,10 +3,10 @@ import Axios from "axios";
 
 class EventDetail extends Component {
     state = {
-        event: {}
+        event: {},
     };
     async componentDidMount() {
-        // if we did not already fetch the events from the /events page then fetch them
+        // if we did not already fetch the events from the /events then fetch them
         if (this.props.location.state !== undefined) {
             this.setState({ event: this.props.location.state });
             console.log("events are defined");
@@ -29,6 +29,12 @@ class EventDetail extends Component {
             <div>
                 <h1>{this.state.event.name}</h1>
                 <p>Creator: {this.state.event.creator.username}</p>
+                <h2>Volunteers</h2>
+                <ul>
+                    {this.state.event.users.map((v) => (
+                        <li key={v.id}>{v.username}</li>
+                    ))}
+                </ul>
             </div>
         );
     }
