@@ -28,7 +28,7 @@ class EventDetail extends Component {
         return (
             <div>
                 <h1>{this.state.event.name}</h1>
-                <p>Creator: {this.state.event.creator.username}</p>
+                <p>Creator: {this.state.event.creator.Username}</p>
                 <h2>Volunteers</h2>
                 <ul>
                     {this.state.event.users.map((v) => (

@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Axios from "axios";
 import { connect } from "react-redux";
+import * as actions from "./store/actions"
 
 import Login from "./components/login";
 import Events from "./components/Events";
@@ -17,10 +18,11 @@ class App extends Component {
     super(props);
     this.state = {};
   }
-
+  componentDidMount(){
+    this.props.login()
+  }
   render() {
-    if (this.props.username === null) {
-    }
+    
     return (
       <Router>
         <NavBar />
@@ -44,5 +46,9 @@ const mapStateToProps = state => {
     username: state.username
   };
 };
-
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => {
+  return {
+    login:() => dispatch(actions.refreshTokenLoginAsync())
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(App);

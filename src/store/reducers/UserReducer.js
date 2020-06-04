@@ -13,7 +13,8 @@ const userReducer = (state = userInitialState, action) => {
         ...state,
         username: action.payload.username,
         userId: action.payload.userId,
-        role: action.payload.role
+        role: action.payload.role,
+        token: action.payload.token
       };
 
     case actionTypes.LOGOUT:
